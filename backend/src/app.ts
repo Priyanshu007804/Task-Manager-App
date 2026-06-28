@@ -1,6 +1,7 @@
 import express from "express"
 import type { Request, Response } from "express"
 import cors from "cors"
+import taskRouter from "./routes/index.route.js"
 
 const app = express();
 
@@ -15,4 +16,5 @@ app.get("/", (req: Request, res: Response) => {
     });
 });
 
+app.use("/api/v1",taskRouter)
 export default app;
