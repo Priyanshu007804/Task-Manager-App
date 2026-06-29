@@ -3,6 +3,8 @@ import mongoose, { Document, Schema } from "mongoose";
 interface ITask extends Document {
     title: string;
     isCompleted: boolean;
+    description:string;
+    
 }
 
 const TaskSchema = new Schema<ITask>(
@@ -14,6 +16,10 @@ const TaskSchema = new Schema<ITask>(
     isCompleted: {
         type: Boolean,
         default: false
+    },
+    description:{
+        type: String,
+        required: true
     }
     }, 
     {

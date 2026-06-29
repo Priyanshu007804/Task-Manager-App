@@ -14,7 +14,9 @@ export const updateTask = async (req: Request, res: Response): Promise<void> => 
             return;
         }
 
-        foundTask.isCompleted = !foundTask.isCompleted;
+        foundTask.isCompleted= !foundTask.isCompleted;
+        foundTask.title= req.body.title || foundTask.title;
+        foundTask.description= req.body.description || foundTask.description;
         await foundTask.save();
         res.status(200).json({
             success:true,
