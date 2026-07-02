@@ -1,4 +1,4 @@
-const backend_url = process.env.BACKEND_URL;
+const backend_url = 'http://localhost:5000';
 
 export const connectBackend = {
     createTask: {
@@ -16,5 +16,9 @@ export const connectBackend = {
     deleteTask: (id:string)=>({
         url: `${backend_url}/api/v1/delete/${id}`,
         method: "DELETE",
+    }),
+    taskCompletion: (id:string)=>({
+        url: `${backend_url}/api/v1/completion/${id}`,
+        method: "PATCH",
     }),
 }

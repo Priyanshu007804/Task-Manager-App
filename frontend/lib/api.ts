@@ -70,3 +70,15 @@ export const deleteTask = async (id:string)=>{
         throw error;
     }
 }
+
+export const taskCompletion = async (id:string)=>{
+    const {url, method} = connectBackend.taskCompletion(id);
+    try{
+        const response = await fetch(url, {method});
+        const data = await response.json();
+        return data;
+    }catch(error){
+        console.log(error);
+        throw error;
+    }
+}

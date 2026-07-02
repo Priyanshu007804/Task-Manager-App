@@ -5,10 +5,13 @@ import taskRouter from "./routes/index.route.js"
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+}));
 app.use(express.json());
 
-// Health of app
 app.get("/", (req: Request, res: Response) => {
     res.status(200).json({
         success: true,
